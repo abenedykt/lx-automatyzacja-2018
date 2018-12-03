@@ -67,6 +67,7 @@ namespace Automatyzacja
 
             Assert.Equal(ExampleNoteTitle, _browser.FindElement(By.CssSelector(".entry-title")).Text);
             Assert.Equal(ExampleNoteContent, _browser.FindElement(By.CssSelector(".entry-content")).Text);
+
         }
 
         protected void WaitForClickable(By by, int seconds)
