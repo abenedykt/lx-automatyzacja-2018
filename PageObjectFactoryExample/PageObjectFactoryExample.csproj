@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPage.cs" />
+    <Compile Include="BasePage.cs" />
     <Compile Include="LoginPage.cs" />
     <Compile Include="NewNotePage.cs" />
     <Compile Include="NotePage.cs" />

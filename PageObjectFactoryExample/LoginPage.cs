@@ -3,26 +3,12 @@ using SeleniumExtras.PageObjects;
 
 namespace PageObjectFactoryExample
 {
-    internal class LoginPage
+    internal class LoginPage : BasePage
     {
-        private readonly IWebDriver _browser;
-
-        public LoginPage(IWebDriver browser)
+        public LoginPage(IWebDriver browser) : base(browser)
         {
-            _browser = browser;
             _browser.Navigate().GoToUrl("http://automatyzacja.benedykt.net/wp-admin");
-
-            PageFactory.InitElements(_browser, this);
         }
-
-        [FindsBy(How=How.Id, Using ="user_login")]
-        public IWebElement User { get; set; }
-
-        [FindsBy(How = How.Id, Using = "user_pass")]
-        public IWebElement Password { get; set; }
-
-        [FindsBy(How = How.Id, Using = "wp-submit")]
-        public IWebElement LogIn { get; set; }
 
         internal AdminPage Login(string user, string password)
         {
@@ -32,5 +18,14 @@ namespace PageObjectFactoryExample
 
             return new AdminPage(_browser);
         }
+
+        [FindsBy(How = How.Id, Using = "user_login")]
+        private IWebElement User { get; set; }
+
+        [FindsBy(How = How.Id, Using = "user_pass")]
+        private IWebElement Password { get; set; }
+
+        [FindsBy(How = How.Id, Using = "wp-submit")]
+        private IWebElement LogIn { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace PageObjectFactoryExample
             var adminPage = loginPage.Login("automatyzacja", "jesien2018");
             var newNote =  adminPage.OpenNewNotePage();
             var url = newNote.Create(ExampleTitle, ExampleContent);
+            adminPage.Logout();
 
             var notePage = new NotePage(_browser, url);
 
